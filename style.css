@@ -79,10 +79,16 @@ h1, h2, h3, h4 {
     font-size: clamp(2rem, 8vw, 6rem);
     font-weight: 800;
     line-height: 1;
+    background: linear-gradient(to right, #4ade80 0%, #facc15 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.hero-title span.green { color: var(--accent-green); }
-.hero-title span.yellow { color: var(--accent-yellow); }
+.hero-title span {
+    color: inherit;
+    -webkit-text-fill-color: inherit;
+}
 
 /* LAYOUT */
 .container { max-width: 1400px; margin: 0 auto; width: 100%; }
