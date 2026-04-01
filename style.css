@@ -215,7 +215,7 @@ h4 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 0.2rem; }
 .full-width { grid-column: 1 / -1; }
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* Limit to 2 columns as per user request */
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -225,13 +225,32 @@ h4 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 0.2rem; }
     border-radius: 12px;
     overflow: hidden;
     position: relative;
-    background: var(--card-bg);
+    background: #1c1c1e;
     border: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: 2.5rem 2rem;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+/* DARK + LIGHT COLOUR COMB (Alternating Tints) */
+.project-card:nth-child(odd) {
+    background: linear-gradient(135deg, #161618 0%, #1c1c2e 100%); /* Slight purple/dark tint */
+}
+
+.project-card:nth-child(even) {
+    background: linear-gradient(135deg, #1a1a1c 0%, #2a2a2c 100%); /* Lighter grey tint */
+}
+
+.project-card:nth-child(3) {
+    grid-column: span 2; /* Make the third card wider to avoid a lone small block */
+    background: linear-gradient(135deg, #121214 0%, #1e1e24 100%);
+}
+
+@media (max-width: 768px) {
+    .projects-container { grid-template-columns: 1fr; }
+    .project-card:nth-child(3) { grid-column: auto; }
 }
 
 .project-card:hover {
