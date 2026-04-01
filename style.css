@@ -242,23 +242,33 @@ h4 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 0.2rem; }
 .project-title {
     color: var(--accent-glow);
     font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 1.2rem;
+    color: var(--text-primary); /* Changed from emerald to white as per screenshot */
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .project-tags {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* "IN ONE LINE" */
     gap: 0.6rem;
     margin-bottom: 1.5rem;
+    overflow-x: auto; /* Allow scroll if too many instead of wrapping */
 }
 
+.project-tags::-webkit-scrollbar { display: none; } /* Hide scrollbar for cleaner look */
+
 .project-tags span {
-    padding: 4px 12px;
-    background: rgba(0, 223, 154, 0.05);
-    border: 1px solid rgba(0, 223, 154, 0.2);
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
+    font-size: 0.8rem;
+    color: var(--text-primary); /* Changed to white as per screenshot */
+    font-weight: 500;
+    white-space: nowrap;
 }
 .label { 
     font-size: 1.1rem; 
