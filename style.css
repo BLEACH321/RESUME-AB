@@ -13,6 +13,13 @@ body {
     color: var(--text-primary);
     font-family: var(--font-body);
     padding: 2rem;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1.5rem 1rem;
+    }
 }
 
 .aurora-bg, .custom-cursor { display: none; }
@@ -68,7 +75,7 @@ h1, h2, h3, h4 {
 }
 
 .name {
-    font-size: clamp(3.5rem, 12vw, 9rem);
+    font-size: clamp(2.5rem, 15vw, 9rem);
     font-weight: 800;
     letter-spacing: -2px;
     line-height: 1;
@@ -76,9 +83,9 @@ h1, h2, h3, h4 {
 }
 
 .hero-title {
-    font-size: clamp(2rem, 8vw, 6rem);
+    font-size: clamp(1.8rem, 10vw, 6rem);
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.1;
     background: linear-gradient(to right, #4ade80 0%, #facc15 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -99,7 +106,14 @@ h1, h2, h3, h4 {
     gap: 4rem;
     max-width: 1000px;
     margin: 0;
-    padding: 2rem;
+    padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+    .content-grid {
+        gap: 3rem;
+        padding: 1rem 0;
+    }
 }
 
 .section {
@@ -164,11 +178,24 @@ h4 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 0.2rem; }
     grid-column: 1 / -1;
 }
 
+@media (max-width: 768px) {
+    .sections-row {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
 /* SKILLS PILLS */
 .skills-pills-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 0.8rem;
+}
+
+@media (max-width: 480px) {
+    .skills-pills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    }
 }
 
 .skill-pill {
@@ -347,8 +374,35 @@ h4 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 0.2rem; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    .content-grid { grid-template-columns: 1fr; padding: 1rem; }
-    .hero { min-height: 70vh; }
-    .name { font-size: 4rem; }
-    .title { font-size: 1.2rem; }
+    .hero {
+        min-height: 50vh;
+        padding: 3rem 0;
+        margin-top: 2rem;
+    }
+    
+    .section-header h3 {
+        font-size: 1rem;
+    }
+    
+    .project-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .project-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 40vh;
+    }
+    
+    .name {
+        font-size: clamp(2.5rem, 18vw, 4rem);
+    }
+    
+    .hero-title {
+        font-size: clamp(1.6rem, 12vw, 2.5rem);
+    }
 }
